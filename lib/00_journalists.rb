@@ -42,13 +42,15 @@ puts "La position de @epenser est #{journalists.index("@epenser")}"
 
 # Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 
-handle_length = journalists.map {|handle| handle.size.to_i}
-handle_length = handle_length.sort
-a = handle_length.first
-z = handle_length.last
+def handle_spread (journalists)
+    handle_length = journalists.map {|handle| handle.size.to_i}
+    handle_length = handle_length.sort
+    a = handle_length.first
+    z = handle_length.last
     for i in a..z do
         handle_size = journalists.count {|handle| handle.size == i}
         if handle_size !=0
             puts "nombre de handles avec #{i} caractères est de #{handle_size} "
         end
     end
+end
